@@ -1,4 +1,6 @@
-﻿function display_lightbox(data) 
+﻿import { postComment } from "./lightbox.js";
+
+function display_lightbox(data) 
 {
     let title = document.getElementById("lightbox_title");
     title.textContent = data.photo.titre;
@@ -8,33 +10,45 @@
     let txt = ""
     data.comments.forEach(comment => {
         txt += 
-        `<p>Pseudo: ${comment.pseudo}</p>
-        <p>Titre: ${comment.titre}</p>
-        <p>Message: ${comment.content}</p>
-        <p>Posté le : ${comment.date}</p>
-        <br>
+        `<article class="media box">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>${comment.titre}</strong> <small>@${comment.pseudo}</small>
+              <br>
+              ${comment.content}
+            </p>
+          </div>
+        </div>
+        <div class="media-right">
+          ${comment.date}
+        </div>
+      </article>
         `
     });
-    console.log(txt)
-    zoneComs.innerHTML = txt
+    zoneComs.innerHTML = txt;
+    document.getElementById("post-comment-button").onclick = () => postComment(data.photo.id)
     show();
 }
 
 function show()
 {
     let contain = document.getElementById("lightbox_container")
-    contain.classList.remove("lightbox_container--hidden")
-    contain.classList.add("lightbox_container--visible")
-    document.getElementById("lightbox_close").addEventListener("click",hide)
+    contain.classList.add("is-active")
+    document.getElementById("lightbox-close").addEventListener("click", hide)
 
 }
 
 function hide()
 {
     let contain = document.getElementById("lightbox_container")
-    contain.classList.add("lightbox_container--hidden")
-    contain.classList.remove("lightbox_container--visible")
-    document.getElementById("lightbox_close").removeEventListener("click",hide)
+    contain.classList.remove("is-active")
+    document.getElementById("lightbox-close").removeEventListener("click", hide)
 }
 
 export

@@ -18,8 +18,8 @@ function display_gallery(gallery) {
 
     document.getElementById("previous").replaceWith(document.getElementById("previous").cloneNode(true));
     document.getElementById("next").replaceWith(document.getElementById("next").cloneNode(true));
-    document.getElementById("previous").addEventListener("click",async e => display_gallery(await prev()));
-    document.getElementById("next").addEventListener("click",async e => display_gallery(await next()));
+    document.getElementById("previous").addEventListener("click", async e => display_gallery(await prev()));
+    document.getElementById("next").addEventListener("click", async e => display_gallery(await next()));
 }
 
 export {

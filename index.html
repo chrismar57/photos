@@ -3,36 +3,77 @@
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet"   href="css/photobox.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="css/photobox.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>photobox</title>
 </head>
-<body>
+<body class="has-background-white-ter">
 
-<nav>
-    <button id="load_gallery">load</button>
-    <button id="first">first page</button>
-    <button id="previous">prev page</button>
-    <button id="next">next page</button>
-    <button id="last">last page</button>
-</nav>
+<main id="gallery" class="p-3">
+
+  <h1 class="title has-text-centered is-1">Projet Photobox</h1>
+
+  <div class="gallery-container" id="gallery_container"></div>
 
 
-<main id="gallery">
+  <div class="modal" id="lightbox_container">
 
-     <div class="gallery-container" id="gallery_container">
+    <div class="modal-background"></div>
+    <div class="modal-content has-background-white-ter p-3" id="lightbox-content">
 
-     </div>
+      <h1 id="lightbox_title" class="has-text-centered title">titre photo</h1>
+      <p class="image block">
+        <img id="lightbox_full_img" src="https://webetu.iutnc.univ-lorraine.fr/www/canals5/photobox/img/large/img_586d38daa09e8.jpg">
+      </p>
+      
+      <div id="lightbox-comments" class="block"></div>
+
+      <!--Add a comment-->
+      <div class="box">
+        <h2 class="subtitle">Poster un commentaire</h2>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <input id="pseudo-form" class="input" placeholder="Votre pseudo" required></input>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <input id="title-form" class="input" placeholder="Titre du commentaire" required></input>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <textarea id="comment-form" class="textarea" placeholder="Ajouter un commentaire" required></textarea>
+              </p>
+            </div>
+            <a class="button is-info" id="post-comment-button">Envoyer</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+    <div class="modal-close is-large" id="lightbox-close"></div>
+
+  </div>
 
 
     <!-- lightbox container should come here -->
 
+    <!--
   <div class="lightbox_container lightbox_container--hidden" id="lightbox_container">
 
        <div id="lightbox">
            <div id="lightbox-head">
-               <p id="lightbox_close">-X-</p>
-               <h1 id="lightbox_title">titre photo</h1>
+               <button class="delete has-background-info is-large" id="lightbox_close"></button>
+               <h1 id="lightbox_title" class="has-text-centered">titre photo</h1>
            </div>
 
            <div id="lightbox-img">
@@ -46,9 +87,26 @@
        </div>
 
   </div>
+  -->
+
+  <div class="has-text-centered"><a class="button is-large is-link has-text-centered" id="load_gallery">Charger</a></div>
+
+  <nav class="pagination is-centered is-medium is-invisible" role="navigation" aria-label="pagination" id="pagination">
+    <ul class="pagination-list">
+      <li><a class="pagination-link" id="first">First page</a></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><a class="pagination-link" id="previous">0</a></li>
+      <li><a class="pagination-link is-current" id="pagination-current">1</a></li>
+      <li><a class="pagination-link" id="next">2</a></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><a class="pagination-link" id="last">Last page</a></li>
+    </ul>
+  </nav>
 
 
 </main>
+
+<footer class="footer has-background-dark has-text-white has-text-centered">Site crée par Théo CHAPELLE et Thomas PISAN</footer>
 
 <script type="module" src="photobox.js"></script>
 
