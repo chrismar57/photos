@@ -11,16 +11,16 @@ Fait par :
 ## Fonctionnalités faites :
 
 ### Partie 1
-[x] Exercice 1
-[x] Exercice 2
-[x] Exercice 3
-[x] Exercice 4
+- [x] Exercice 1
+- [x] Exercice 2
+- [x] Exercice 3
+- [x] Exercice 4
 
 ### Partie 2
-[ ] Exercice 1
-[x] Exercice 2
-[ ] Exercice 3
-[x] Exercice 4
+- [ ] Exercice 1
+- [x] Exercice 2
+- [ ] Exercice 3
+- [x] Exercice 4
 
 ### Fonctionnalités supplémentaires
 
