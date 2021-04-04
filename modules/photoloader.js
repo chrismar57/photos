@@ -1,6 +1,6 @@
 ﻿function loadRessource(url) 
 {
-  return fetch(url).then(res => res.json())
+  return fetch(url, {"credentials": "include"}).then(res => res.json())
 }
 
 export

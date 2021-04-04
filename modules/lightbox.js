@@ -19,7 +19,8 @@ function postComment(id) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        "body": JSON.stringify({pseudo, titre, content})
+        "body": JSON.stringify({pseudo, titre, content}),
+        "credentials": "include"
     })
     .then(res => {
         document.getElementById("title-form").value = "";
